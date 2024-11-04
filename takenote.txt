@@ -1,0 +1,61 @@
+
+KẾT NỐI VỚI CSDL
+
+1. đối tượng connection
+-khởi tạo đối tượng:
+    set <ten doi tuong> = Server.CreateObject("ADODB.Connection")
+-chuỗi kết tới cơ sở dữ liệu:4
+    strconn = "Provider = Microsoft.Jet.OLEDB.4.0; Data Source = " 
+    & Server.Mappath("Database1.mdb") //access
+-các phương thức của đối tượng connection:
+    <ten doi tuong>.open strcon 'mở kết nối tới csdl'
+    <ten doi tuong>.close   'đóng kết nối tới csdl'
+    <ten doi tuong>.execute <sql>   'xử lý câu lệnh sql'
+
+(26/8)
+THAO TÁC VỚI CSDL
+1. Đối tượng Recordset:
++ là đối tượng chứa tập kết quả trả về bởi câu lệnh select
++khai bao đối tượng :
+set <ten doi tuong> = Server.CreateObject("ADODB.Recordset")
+ví dụ: 
+    set rs = Server.CreateObject("ADODB.Recordset")
+    set rs1 = Server.CreateObject("ADODB.Recordset")
+Các phương thức thường dùng:
+<tên dối tượng>.Open "lệnh SQL", <Tên đối tượng connection>
+Mở ra tập kết quả được trả về bởi lệnh select
+
+Ví dụ
+rs.open "select * from [user]", conn //con trỏ rs ở bản ghi đầu tiên
+rs.movenext //di chuyển đến bản ghi tiếp theo
+rs.("tên trường"): trả về giá trị của cột tương ứng
+                    với tên trường tại vị trí của dòng hiện thời
+rs.eof //kết thúc bảng (true/false)
+
+ví dụ:
+        Hiển thị dũ liệu của bảng categories
+thêm dữ liệu vào bảng:
++ tạo form để người dùng nhập vào dữ liệu cần thêm
++ khi form submit thì ở trang action cần làm :
+    -kết nối csdl
+    -lấy dữ liệu người dùng nhập vào
+    -hình thành câu lệnh thêm(insert)
+    -gọi xử lý lệnh thêm
+    -đóng kết nối csdl
+    -gọi lại trang hiển thị
+
+Sửa dữ liệu:
+    + Cần biết sửa dữ liệu -> truyền khóa chính cần sửa
+    + Tạo form để cho phép sửa dữ liệu: lấy dữ liệu cũ hiển thị ra form 
+    + Khi form submit thì cần thực hiện:
+        - 
+
+    Ví dụ sửa:
+        update categories set cat_name = "BMPhone"
+        , cat_order = 12, cat_status = 1 where cat_id = 7;
+
+Xoá dữ liệu:
+    + hỏi có muốn xóa hay không
+    + nếu muốn xóa thì cần truyền đi mã đối tượng cần xóa
+    + hình thành câu lệnh xóa    
+    + gọi xử lý và quay lại trang hiển thị

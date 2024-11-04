@@ -1,0 +1,28 @@
+16/10
+
+Phân trang trong asp
+1. số bản ghi trên một trang
+    <tên đối tương recordset>.pagesize = số
+
+    phải đặt kiểu con trỏ để tính số bản ghi trên trang
+
+    <tên đối tượng recordset>.cursorLocation = 3
+
+2. tổng số trang:
+
+    <tên đối tượng recordset>.pagecount
+
+3. vị trí trang hiện thời:
+
+    <tên đối tượng recordset>.absolutepage
+
+4. trang muốn đến:
+    lần đầu tiên để trang 1
+    -> đi trang cần đến
+
+    nếu đến vượt quá số trang thì cho về trang cuối cùng
+
+ví dụ phân trang với bảng product
+
+vd2: làm trang tim kiếm sản phẩm theo:
+    danh mục, tên, mô tả, trạng thái sản phẩm và có phân trang kết quả

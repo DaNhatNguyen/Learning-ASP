@@ -1,0 +1,5 @@
+Đặc quyền tối thiểu
+
+    -kiểm soát truy cập
+        + tùy chọn
+        + 
