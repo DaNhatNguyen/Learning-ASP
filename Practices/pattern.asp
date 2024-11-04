@@ -96,18 +96,18 @@
 								<td><input type=text name=txtPimage value="<%=rs("pimage")%>"></td>
 								<td><select name=slCid>
 											<%
-															rs1.open "select * from Categories where cstatus=1", conn 
-															while not rs1.eof 
-																response.write("<option value=" & rs1("cid"))
-																if (rs("cid") =rs1("cid")) then 
-																		response.write(" selected ")
-																end if 
-																response.write (">" & rs1("cname") & "</option>")
-															
-															rs1.movenext
-															wend
-															rs1.close 
-													%>	
+												rs1.open "select * from Categories where cstatus=1", conn 
+												while not rs1.eof 
+													response.write("<option value=" & rs1("cid"))
+													if (rs("cid") =rs1("cid")) then 
+															response.write(" selected ")
+													end if 
+													response.write (">" & rs1("cname") & "</option>")
+												
+												rs1.movenext
+												wend
+												rs1.close 		
+											%>	
 										</select>
 								</td>
 								<td><input type=radio value=1 <%
