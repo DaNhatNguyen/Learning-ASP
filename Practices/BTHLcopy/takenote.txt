@@ -1,0 +1,5 @@
+yêu cầu:
+1. liệt kê tất cả các categories dang navication
+2. khi chọn một categories nào đó thì liệt kê tất cả các sản phẩm thuộc categories đó
+3. trong trường nạp trang lần đầu(chưa chọn categories nào) thì liệt kê các sản phẩm có is_hot = 1
+áp style theo trang phucanh.vn
